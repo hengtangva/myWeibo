@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+## 项目规范
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. 文件夹，文件名统一小写，多个单词以连接符 - 连接。         
 
-## Available Scripts
+2. JavaScript 变量名采用小驼峰标识，常量全部采用大写字母，组件采用大驼峰。          
 
-In the project directory, you can run:
+3. CSS 采用普通 CSS 和 style-component 结合来编写 (全局采用普通CSS, 局部采用 styled-component)       
 
-### `yarn start`
+    - yarn add styled-components        
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. 整个项目不再使用 class 组件，统一使用函数式组件，使用 Hooks          
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+5. 所有的函数组件，为了不必要的渲染，全部使用 memo 进行包裹。         
 
-### `yarn test`
+6. 组件内部状态，使用 useState，useReducer；业务实际全部放在 redux 中管理。        
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. 函数组件内部基本按照如下顺序编写代码         
 
-### `yarn build`
+    1. 组件内部 state 管理          
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    2. redux 的 hooks 代码        
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    3. 其他组件的 hooks 代码       
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    4. 其他逻辑代码         
 
-### `yarn eject`
+    5. 返回 jsx 代码             
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+8. redux 代码规范如下：        
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    1. 每个模块有自己独立的 reducer， 通过 combineReducer 进行合并         
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    2. 异步请求代码使用 redux-thunk, 并且写在 actionCreators 中         
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    3. redux 直接采用 redux hooks 方式编写，不再使用 connect          
 
-## Learn More
+9. 网络请求使用 axios        
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    1. 对 axios 进行二次封装          
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    2. 所有的模块请求会放到一个请求文件中单独管理           
 
-### Code Splitting
+10. 项目使用 AntDesign          
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    - yarn add antd         
 
-### Analyzing the Bundle Size
+    - yarn add @ant-design/icons
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 项目流程
 
-### Making a Progressive Web App
+1. 首先初始化 css， 比如去除 body 的 margin 等.        
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - 可以用插件 yarn add normalize.css         
 
-### Advanced Configuration
+    - 新建一个 reset.css 文件，导入该包，加入自己想要的全局样式，最后在 index.js 导入          
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. 配置别名，方便之和组件的引入           
 
-### Deployment
+    - 用到插件，craco，可以在不暴露 webpack 配置的情况下，配置别名，yarn add @craco/craco         
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    - 接着，修改 package.json 的脚本：详见改动部分      
 
-### `yarn build` fails to minify
+    - 最后，在根目录下新建一个  craco.config.js 文件，在里面配置 webpack 的别名          
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. 划分目录结构。       
+
+4. 配置路由        
+
+    - yarn add react-router-dom; yarn add react-router-config(用于配置路由文件)        
+
+    - router 文件夹新建 index.js,  配置 routes 数组，导出        
+
+    - App 组件使用 HashRouter 包裹起来，(这里选择 hash 路由)       
+
+    - 从 react-router-config 中导入函数 renderRoutes, 将 routes 作为参数传进去，执行          
+
+    - 导航栏组件中用 NavLink 配置导航         
+
+
+
+
+

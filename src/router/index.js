@@ -1,18 +1,18 @@
 
-import { React } from 'react'
-
-import THDiscover from "@/pages/discover";
-import THMine from "@/pages/mine";
-import THFriend from "@/pages/friend";
-
-import THRecommend from '@/pages/discover/c-pages/recommend'
-import THSongs from '@/pages/discover/c-pages/songs'
-import THRanking from '@/pages/discover/c-pages/ranking'
-import THArtist from '@/pages/discover/c-pages/artist'
-import THAlbum from '@/pages/discover/c-pages/album'
-import THDjradio from '@/pages/discover/c-pages/djradio'
+import  React  from 'react'
 
 import { Redirect } from "react-router";
+
+// 路由懒加载
+const THDiscover = React.lazy(() => import("@/pages/discover"));
+const THMine = React.lazy(() => import("@/pages/friend"));
+const THFriend = React.lazy(() => import("@/pages/mine"));
+const THRecommend = React.lazy(() => import("@/pages/discover/c-pages/recommend"));
+const THSongs = React.lazy(() => import("@/pages/discover/c-pages/songs"));
+const THRanking = React.lazy(() => import("@/pages/discover/c-pages/ranking"));
+const THArtist = React.lazy(() => import("@/pages/discover/c-pages/artist"));
+const THAlbum = React.lazy(() => import("@/pages/discover/c-pages/album"));
+const THDjradio = React.lazy(() => import("@/pages/discover/c-pages/djradio"));
 
 const routes = [
     {

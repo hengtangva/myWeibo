@@ -11,10 +11,20 @@ import {
 
 import { NavLink } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
+// import request  from '@/service/request.js'
 export default memo(function THDiscover(props) {
+    // 测试网络请求
+    // useEffect(() => {
+    //     request({
+    //         url: '/banner'
+    //     }).then((res) => {
+    //         console.log(res)
+    //     })
+    // },[])
     // 对于子路由，props 会传过来 route 这个对象，route.routes 即该组件上面的子路由
     const { route } = props;
-    console.log(route)
+
+    // console.log(route)
     return (
         <DiscoverWrap>
             <div className="top">

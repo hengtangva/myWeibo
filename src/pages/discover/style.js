@@ -15,8 +15,19 @@ export const TopMenu = styled.div`
     top: -4px;
 
     .item {
-        margin-right: 20px;
-        margin-top: 8px;
-        color: #fff;
+        a {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 13px;
+            margin: 7px 17px 0;
+            color: #fff;
+
+            &:hover, &.active {
+                text-decoration: none;
+                background: #9B0909;
+                border-radius: 20px;
+            }
+        }
     }
 `

@@ -12,16 +12,16 @@ export const headerLinks = [
     link: "/friend"
   },
   {
-    title: "商城",
-    link: "https://music.163.com/store/product"
-  },
-  {
     title: "音乐人",
     link: "https://music.163.com/nmusician/web/index#/"
   },
   {
     title: "下载客户端",
     link: "https://music.163.com/#/download"
+  },
+  {
+    title: '我的博客',
+    link: "https://hengtangva.github.io/"
   }
 ]
 

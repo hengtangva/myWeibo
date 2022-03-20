@@ -1,28 +1,26 @@
 
-import React, { memo, Suspense } from 'react'
-import { renderRoutes } from 'react-router-config'
-import { HashRouter } from 'react-router-dom'
-import { Provider } from 'react-redux' //  用 provider 共享 store
+// import { renderRoutes } from 'react-router-config'
+// import { HashRouter } from 'react-router-dom'
+// import { Provider } from 'react-redux' //  用 provider 共享 store
 
-import routes from './router'
-import store from './store'
+// import routes from './router'
 
-import THAppHeader from "@/components/app-header";
-import THAppFooter from "@/components/app-footer";
-import THPlayer from '@/pages/player/player-bar';
+import globalStore from './store'
 
-export default memo(function App() {
+import React, { Component } from 'react'
+import NavBar from 'components/navBar'
+import THAppFooter from './components/app-footer'
+export default class App extends Component {
+
+  render() {
+    const { name } = globalStore
     return (
-        <Provider store={store}>
-            <HashRouter>
-                <THAppHeader/>
-                <Suspense fallback={<div>loading</div>}>
-                    { renderRoutes(routes) }
-                </Suspense>
-                <THAppFooter/>
-                <THPlayer/>
-            </HashRouter>
-        </Provider>
-            
+      <div>
+          <NavBar/>
+          hello {name}
+          <THAppFooter/>
+      </div>
     )
-})
+  }
+}
+

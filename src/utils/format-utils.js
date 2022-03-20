@@ -53,7 +53,3 @@ export function formatDate(time, fmt) {
     return formatDate(time, "mm:ss");
   }
   
-// 根据歌曲 id 获取音频 url
-export function getPlayUrl(id) {
-    return `https://music.163.com/song/media/outer/url?id=${id}.mp3`
-  }

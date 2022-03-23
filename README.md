@@ -2,6 +2,12 @@
 
 - 接入 typescript，并在 typescript.json 里面配置装饰器语法
 
+- 引入，node-sass，classnames，react-router，完成tab栏
+
+- tsx import React 报错，目前使用 hack 的方法，在 tsconfig 里面加 "allowSyntheticDefaultImports": true,
+
+- 导入 react-loadable 做懒加载，并使用 antDesign 的 loading 组件
+
 
 
 
